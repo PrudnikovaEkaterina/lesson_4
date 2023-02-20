@@ -6,7 +6,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class Automation_practice_form {
+public class AutomationPracticeForm {
 
 //   String filePath = "C:\\Users\\79085\\OneDrive\\Рабочий стол\\Скрины\\ljv.png";
    String fName = "Прудникова";
