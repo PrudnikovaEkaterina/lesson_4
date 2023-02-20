@@ -45,14 +45,18 @@ public class Automation_practice_form {
         $x("//div[text()='Thanks for submitting the form']")
                 .shouldHave(Condition.text("Thanks for submitting the form"));
 
-        $x("//tbody").shouldHave(Condition.text(fName),
-                Condition.text(lName), Condition.text(email), Condition.text("Male"),
-                Condition.text("15 February,1989"), Condition.text("Reading"),
-                Condition.text("ljv.png"), Condition.text(currentAddress),
-                Condition.text("NCR Delhi"));
-
-        $x("//tbody").shouldHave(Condition.text(phoneNumber),
-                Condition.text(subjects)); // в номере телефона не добавилась 1 цифра, subjects не отображается;
+        $x("//tbody").shouldHave(Condition.text(fName));
+        $x("//tbody").shouldHave(Condition.text(lName));
+        $x("//tbody").shouldHave(Condition.text(email));
+        $x("//tbody").shouldHave(Condition.text("Male"));
+        $x("//tbody").shouldHave(Condition.text("15 February,1989"));
+        $x("//tbody").shouldHave(Condition.text("Reading"));
+        $x("//tbody").shouldHave(Condition.text("ljv.png"));
+        $x("//tbody").shouldHave(Condition.text(currentAddress));
+        $x("//tbody").shouldHave(Condition.text("NCR Delhi"));
+        $x("//tbody").shouldHave(Condition.text(phoneNumber));
+        $x("//tbody").shouldHave(Condition.text(subjects));
+       // в номере телефона не добавилась 1 цифра, subjects не отображается;
 
 
 
