@@ -12,7 +12,7 @@ public class Automation_practice_form {
    String fName = "Прудникова";
    String lName = "Екатерина";
    String email = "rvsn0913@mail.ru";
-   String phoneNumber ="89281960486";
+   String phoneNumber ="9281960486";
    String subjects = "AQA";
    String currentAddress = "Ростов-на-Дону";
    File file=new File("src/test/resources/ljv.png");
@@ -26,14 +26,14 @@ public class Automation_practice_form {
         $ ("#firstName").setValue(fName);
         $ ("#lastName").setValue(lName);
         $ ("#userEmail").setValue(email);
-//    $x ("//label[text()='Male']").click();
-        $ ("#gender-radio-1").sendKeys(" ");
+        $x ("//label[text()='Male']").click();
         $x ("//input[@id='userNumber']").setValue(phoneNumber);
         $x("//input[@id='dateOfBirthInput']").click();
         $x("//select[@class='react-datepicker__month-select']//child::option[2]").click();
         $x("//select[@class='react-datepicker__year-select']//child::option[90]").click();
         $x("//div[@aria-label='Choose Wednesday, February 15th, 1989']").click();
-        $x("//input[@aria-autocomplete='list']").sendKeys(subjects);
+        $x("//input[@aria-autocomplete='list']").setValue("e");
+        $x("//div[text()='English']").click();
         $x("//label[text()='Reading']").click();
         $x("//input[@id='uploadPicture']").uploadFile(file);
         $x("//textarea[@placeholder='Current Address']").setValue(currentAddress);
@@ -56,8 +56,8 @@ public class Automation_practice_form {
         $x("//tbody").shouldHave(Condition.text(currentAddress));
         $x("//tbody").shouldHave(Condition.text("NCR Delhi"));
         $x("//tbody").shouldHave(Condition.text(phoneNumber));
-        $x("//tbody").shouldHave(Condition.text(subjects));
-       // в номере телефона не добавилась 1 цифра, subjects не отображается;
+        $x("//tbody").shouldHave(Condition.text("English"));
+      
 
 
 
