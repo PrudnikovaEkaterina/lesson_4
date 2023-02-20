@@ -8,13 +8,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Automation_practice_form {
 
-   String filePath ="C:\\Users\\79085\\OneDrive\\Рабочий стол\\Скрины\\ljv.png";
+//   String filePath = "C:\\Users\\79085\\OneDrive\\Рабочий стол\\Скрины\\ljv.png";
    String fName = "Прудникова";
    String lName = "Екатерина";
    String email = "rvsn0913@mail.ru";
    String phoneNumber ="89281960486";
    String subjects = "AQA";
    String currentAddress = "Ростов-на-Дону";
+   File file=new File("src/test/resources/ljv.png");
 
 
     @Test
@@ -34,7 +35,7 @@ public class Automation_practice_form {
         $x("//div[@aria-label='Choose Wednesday, February 15th, 1989']").click();
         $x("//input[@aria-autocomplete='list']").sendKeys(subjects);
         $x("//label[text()='Reading']").click();
-        $x("//input[@id='uploadPicture']").sendKeys(filePath);
+        $x("//input[@id='uploadPicture']").uploadFile(file);
         $x("//textarea[@placeholder='Current Address']").setValue(currentAddress);
         $x("//div[text()='Select State']").click();
         $x("//div[text()='NCR']").click();
