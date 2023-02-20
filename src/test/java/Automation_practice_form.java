@@ -13,7 +13,6 @@ public class Automation_practice_form {
    String lName = "Екатерина";
    String email = "rvsn0913@mail.ru";
    String phoneNumber ="9281960486";
-   String subjects = "AQA";
    String currentAddress = "Ростов-на-Дону";
    File file=new File("src/test/resources/ljv.png");
 
@@ -57,7 +56,7 @@ public class Automation_practice_form {
         $x("//tbody").shouldHave(Condition.text("NCR Delhi"));
         $x("//tbody").shouldHave(Condition.text(phoneNumber));
         $x("//tbody").shouldHave(Condition.text("English"));
-      
+
 
 
 
