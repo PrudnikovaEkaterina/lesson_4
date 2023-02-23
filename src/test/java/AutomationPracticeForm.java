@@ -9,13 +9,17 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeForm {
 
-    Faker faker=new Faker(); //подключаем библиотеку для генерации тестовых данных.
+    long seed = 1;
+
+    Faker faker=new Faker(new Locale("ru"), new Random(seed)); //подключаем библиотеку для генерации тестовых данных. Если не передаватғ в качестве аргумента new Random(seed),
+    // то данные будут каждый раз разные; Если предавать, то генерится одно и тоже. /new Locale("ru") - язык генерации данных
 
     String firstName = faker.name().firstName(); // генерируется тестовое имя
 
