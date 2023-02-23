@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SeledinLesson1Test {
+public class SelenideLesson1Test {
     String expectedResult = "@ExtendWith({SoftAssertsExtension.class})\n" +
             "class Tests {\n" +
             "  @Test\n" +
@@ -17,14 +17,16 @@ public class SeledinLesson1Test {
             "    $(\"#second\").should(visible).click();\n" +
             "  }\n" +
             "}";
+
     @Test
-    public void  SoftAssertionsShouldHaveExampleJUnit5 () {
-        Configuration.browserSize="1024x1124";
-        open ("https://github.com/selenide/selenide");
-        $ ("#wiki-tab").click();
+    public void softAssertionsShouldHaveExampleJUnit5() {
+        Configuration.browserSize = "1024x1124";
+        open("https://github.com/selenide/selenide");
+        $("#wiki-tab").click();
         $(".markdown-body").shouldHave(Condition.text("Soft assertions"));
         $x("//a[text()='Soft assertions']").click();
-        String actualResult = $x ("//div[@class='highlight highlight-source-java notranslate position-relative overflow-auto'][4]//child::pre").getText();
+        String actualResult = $x("//div[@class='highlight highlight-source-java notranslate position-relative overflow-auto'][4]//child::pre").getText();
         assertEquals(expectedResult, actualResult);
+
     }
 }
