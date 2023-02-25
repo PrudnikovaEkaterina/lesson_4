@@ -19,14 +19,14 @@ public class SelenideLesson2Test {
     }
 
     @Test
-    public void actionDragDrop() {
+    public void dragDrop() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         a.dragAndDropTo(b).click();
         a.shouldHave(Condition.text("B"));
     }
 
     @Test
-    public void DragDrop() {
+    public void actionDragDrop() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         actions().clickAndHold(a).moveToElement(b).release().perform();
         a.shouldHave(Condition.text("B"));
