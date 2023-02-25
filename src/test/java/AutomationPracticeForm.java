@@ -18,7 +18,7 @@ public class AutomationPracticeForm {
 
     long seed = 1;
 
-    Faker faker=new Faker(new Locale("ru"), new Random(seed)); //подключаем библиотеку для генерации тестовых данных. Если не передаватғ в качестве аргумента new Random(seed),
+    Faker faker = new Faker(new Locale("ru"), new Random(seed)); //подключаем библиотеку для генерации тестовых данных. Если не передаватғ в качестве аргумента new Random(seed),
     // то данные будут каждый раз разные; Если предавать, то генерится одно и тоже. /new Locale("ru") - язык генерации данных
 
     String firstName = faker.name().firstName(); // генерируется тестовое имя
@@ -29,7 +29,7 @@ public class AutomationPracticeForm {
 
     Date birthday = faker.date().birthday(); // формат Thu May 12 15:33:43 MSK 1977 /
 
-    LocalDate birthday1=faker.date().birthday().toInstant()
+    LocalDate birthday1 = faker.date().birthday().toInstant()
             .atZone(ZoneId.systemDefault()).toLocalDate(); // формат 2001-03-05
 
     // Эта строка кода выполняет преобразование объекта типа java.util.Date (или его подкласса, такого как java.sql.Date или java.sql.Timestamp)
@@ -52,12 +52,12 @@ public class AutomationPracticeForm {
 
     String day = String.valueOf(birthday1.getDayOfMonth());
 
-    String day1=birthday1.format(DateTimeFormatter.ofPattern("dd")); //Дата LocalDate = LocalDate.now(); Строковый текст = date.format(formatter);
+    String day1 = birthday1.format(DateTimeFormatter.ofPattern("dd")); //Дата LocalDate = LocalDate.now(); Строковый текст = date.format(formatter);
     // ofPattern(String pattern) Создает средство форматирования с использованием указанного шаблона.
 
     String year = Integer.toString(birthday1.getYear());
 
-    String[] genders = new String[]{"Male","Female","Other"};
+    String[] genders = new String[]{"Male", "Female", "Other"};
 
     String gender = getRndValueArr(genders);
 
@@ -66,32 +66,32 @@ public class AutomationPracticeForm {
         return arr[rnd];
     } //метод для выбора рандомного значения из масссива
 
-   @Test
-   public void print (){
-       System.out.println(firstName);
-       System.out.println(lastName);
-       System.out.println(phone);
-       System.out.println(birthday);
-       System.out.println(birthday1);
-       System.out.println(month);
-       System.out.println(day);
-       System.out.println(day1);
-       System.out.println(year);
-   }
+    @Test
+    public void print() {
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(phone);
+        System.out.println(birthday);
+        System.out.println(birthday1);
+        System.out.println(month);
+        System.out.println(day);
+        System.out.println(day1);
+        System.out.println(year);
+    }
 
 
-   String fName = "Прудникова";
-   String lName = "Екатерина";
-   String email = "rvsn0913@mail.ru";
-   String phoneNumber ="9281960486";
-   String currentAddress = "Ростов-на-Дону";
-   File file=new File("src/test/resources/ljv.png");
+    String fName = "Прудникова";
+    String lName = "Екатерина";
+    String email = "rvsn0913@mail.ru";
+    String phoneNumber = "9281960486";
+    String currentAddress = "Ростов-на-Дону";
+    File file = new File("src/test/resources/ljv.png");
 
 
     @Test
-     public void registrationFormTest (){
-//
+    public void registrationFormTest() {
 //        Configuration.browserSize="1024x1124";
+//
 //        open ("https://demoqa.com/automation-practice-form");
 
         executeJavaScript("$('#fixedban').remove()");  //убираем баннеры java скриптом
@@ -134,7 +134,7 @@ public class AutomationPracticeForm {
 //
 
 
+    }
 
-
-    };
+    ;
 }
