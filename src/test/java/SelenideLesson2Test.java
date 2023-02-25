@@ -3,10 +3,11 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideLesson2Test {
+    SelenideElement a = $x("//div[@id='column-a']");
+    SelenideElement b = $x("//div[@id='column-b']");
 
     @Test
     public void checkDownloadPage() {
@@ -20,10 +21,14 @@ public class SelenideLesson2Test {
     @Test
     public void actionDragDrop() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
-        SelenideElement a = $x("//div[@id='column-a']");
-        SelenideElement b = $x("//div[@id='column-b']");
-//      actions().clickAndHold(a).moveToElement(b).release().perform();
         a.dragAndDropTo(b).click();
+        a.shouldHave(Condition.text("B"));
+    }
+
+    @Test
+    public void DragDrop() {
+        open("https://the-internet.herokuapp.com/drag_and_drop");
+        actions().clickAndHold(a).moveToElement(b).release().perform();
         a.shouldHave(Condition.text("B"));
     }
 }
