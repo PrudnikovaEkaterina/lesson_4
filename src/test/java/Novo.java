@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import javax.swing.*;
 
 import static com.codeborne.selenide.Selenide.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Novo {
     String url = "https://agency.novo-estate.ru/";
@@ -28,6 +29,38 @@ public class Novo {
         $x("//span[text()='Продолжить ']").click();
         $x("//i[@class='el-icon one-column-header__account-icon']").hover();
         $x("//span[@class='user-menu__dropdown-text']").shouldHave(Condition.text("Профиль"));
+
+    }
+    @Test
+    public void goToProfile(){
+        registration();
+        $x("//i[@class='el-icon one-column-header__account-icon']").hover();
+        $x("//span[text()='Профиль']").click();
+        $x("//h2").shouldHave(Condition.text("Профиль"));
+
+
+    }
+
+    @Test
+    public void clientFillInTheProfileFields(){
+        goToProfile();
+        sleep(3000);
+//        $x("//input[@name='phone']").shouldBe(Condition.disabled);
+        $x("//input[@name='phone']").shouldHave(Condition.attribute("disabled"));
+        $x("//input[@name='name']").setValue("Прудникова Selenide");
+        $x("//input[@name='email']").setValue("selenide@mail.ru");
+        $x("//i[@class='el-icon me-settings__chosen-icon']").click();
+        $x("//div[@role='alert']").shouldHave(Condition.text("Успешно"));
+        sleep(5000);
+
+
+    }
+
+    @Test
+    public void returnFromProfileToNovostroyki(){
+        goToProfile();
+        $x("//a[text()='Вернуться на главную']").click();
+        $x("//h1").shouldHave(Condition.text("Жилые комплексы Москвы и Московской области"));
     }
 
     @Test
@@ -60,4 +93,6 @@ public class Novo {
 //        $x("//div[@class='infinity-scroll__viewport']").scrollIntoView(false);
 
     }
+
+
 }
