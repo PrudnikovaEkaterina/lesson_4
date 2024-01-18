@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 group 'ru.move'
@@ -15,10 +16,13 @@ compileTestJava {
 dependencies {
 
     testImplementation (
-            "com.codeborne:selenide:6.11.2",
-            "org.junit.jupiter:junit-jupiter:5.9.2",
-            "org.slf4j:slf4j-simple:2.0.6",
-            "com.github.javafaker:javafaker:1.0.2"
+            "com.codeborne:selenide:7.0.4",
+            "org.junit.jupiter:junit-jupiter:5.10.1",
+            'mysql:mysql-connector-java:8.0.33',
+            'org.hibernate:hibernate-core:6.4.1.Final',
+            'com.fasterxml.jackson.core:jackson-databind:2.16.1',
+            'org.hibernate:hibernate-entitymanager:5.6.15.Final'
+
     )
 }
 
